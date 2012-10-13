@@ -1,67 +1,71 @@
-<div>
+<div id = "canvas-header">
   <h1><%= best_in_place @canvas, :title, :type => :input %></h1>
   <%= best_in_place @canvas, :description, :type => :textarea %>
 </div>
 
+<div id = "canvas-container">
+  <div class="row-fluid"> 
 
-<div class="row-fluid"> 
-
-  <div class="span2">
-    <b>Key partnerships:</b>
-    <%= best_in_place @canvas, :key_partnerships, :type => :textarea, :display_as => :md_key_partnerships %>
-  </div>
-
-  <div class="span2">
-    <div>
-      <b>Key activities:</b>
-      <%= best_in_place @canvas, :key_activities, :type => :textarea, :display_as => :md_key_activities %>
+    <div class="canvas-column">
+      <b>Key partnerships</b>
+      <%= best_in_place @canvas, :key_partnerships, :type => :textarea, :display_as => :md_key_partnerships %>
     </div>
 
-    <div>
-      <b>Key resources:</b>
-      <%= best_in_place @canvas, :key_resources, :type => :textarea, :display_as => :md_key_resources %>
+    <div class="canvas-column">
+      <div>
+        <b>Key activities</b>
+        <%= best_in_place @canvas, :key_activities, :type => :textarea, :display_as => :md_key_activities %>
+      </div>
+
+      <div>
+        <b>Key resources</b>
+        <%= best_in_place @canvas, :key_resources, :type => :textarea, :display_as => :md_key_resources %>
+      </div>
+
     </div>
 
-  </div>
-
-  <div class="span2">
-    <b>Value propositions:</b>
-    <%= best_in_place @canvas, :value_propositions, :type => :textarea, :display_as => :md_value_propositions %>
-  </div>
-
-  <div class="span2">
-    <div>
-      <b>Customer relationships:</b>
-      <%= best_in_place @canvas, :customer_relationships, :type => :textarea, :display_as => :md_customer_relationships %>
+    <div class="canvas-column">
+      <b>Value propositions</b>
+      <%= best_in_place @canvas, :value_propositions, :type => :textarea, :display_as => :md_value_propositions %>
     </div>
 
-    <div>
-      <b>Channels:</b>
-      <%= best_in_place @canvas, :channels, :type => :textarea, :display_as => :md_channels %>
+    <div class="canvas-column">
+      <div class="top-block">
+        <b>Customer relationships</b>
+        <%= best_in_place @canvas, :customer_relationships, :type => :textarea, :display_as => :md_customer_relationships %>
+      </div>
+
+      <div class="bottom-block">
+        <b>Channels</b>
+        <%= best_in_place @canvas, :channels, :type => :textarea, :display_as => :md_channels %>
+      </div>
+    </div>
+
+    <div class="canvas-column">
+      <b>Customer segments</b>
+      <%= best_in_place @canvas, :customer_segments, :type => :textarea, :display_as => :md_customer_segments %>
+    </div>
+
+    <div class="clear"></div>
+
+  </div>
+
+  <div class="row-fluid">
+    <div class="canvas-column canvas-column-wide">
+      <b>Cost structure</b>
+      <%= best_in_place @canvas, :cost_structure, :type => :textarea, :display_as => :md_cost_structure %>
+    </div>
+
+    <div class="canvas-column canvas-column-wide">
+      <b>Revenue streams</b>
+      <%= best_in_place @canvas, :revenue_streams, :type => :textarea, :display_as => :md_revenue_streams %>
     </div>
   </div>
-
-  <div class="span2">
-    <b>Customer segments:</b>
-    <%= best_in_place @canvas, :customer_segments, :type => :textarea, :display_as => :md_customer_segments %>
-  </div>
-
 </div>
 
-<div class="row-fluid">
-  <div class="span6">
-    <b>Cost structure:</b>
-    <%= best_in_place @canvas, :cost_structure, :type => :textarea, :display_as => :md_cost_structure %>
-  </div>
-
-  <div class="span6">
-    <b>Revenue streams:</b>
-    <%= best_in_place @canvas, :revenue_streams, :type => :textarea, :display_as => :md_revenue_streams %>
+<div id = "canvas-footer">
+  <div id = "canvas-footer-content">
+    <%= link_to 'Edit', edit_canvas_path(@canvas) %> |
+    <%= link_to 'Back', canvases_path %>
   </div>
 </div>
-
-
-
-
-<%= link_to 'Edit', edit_canvas_path(@canvas) %> |
-<%= link_to 'Back', canvases_path %>

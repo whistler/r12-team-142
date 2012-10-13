@@ -1,3 +1,60 @@
 // Place all the styles related to the Canvases controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#canvas-header, #canvas-container, #canvas-footer {
+  padding: 10px;
+}
+
+#canvas-header {
+  
+}
+#canvas-container {
+  padding: 10px;
+  position: absolute;
+  top: 80px;
+  bottom: 50px;
+}
+#canvas-footer {
+  padding: 0px;
+  position: absolute;
+  bottom: 0px;
+  height: 50px;
+  background-color: rgba(100,100,100, 0.8);
+  width: 100%;
+}
+#canvas-footer-content {
+  padding: 10px;
+}
+
+.canvas-column {
+  position: relative;
+  width: 20%;
+  float: left;
+  b {
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-right: 10%;
+  }
+  p {
+    margin-right: 20px;
+  }
+  height: 100%;
+}
+
+.canvas-column-wide {
+  width: 50%;
+  padding-top: 10px;
+}
+
+.clear {
+  clear: both;
+}
+
+.top-block, .bottom-block {
+  width: 100%;
+  float: left;
+  height: 100%;
+}
+
