@@ -1,5 +1,7 @@
 LeanWall::Application.routes.draw do
 
+  resources :canvas
+
   get "welcome/index"
   get "welcome/about", :as => 'about'
 

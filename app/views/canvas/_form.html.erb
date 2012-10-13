@@ -1,0 +1,69 @@
+<%= form_for(@canva) do |f| %>
+  <% if @canva.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@canva.errors.count, "error") %> prohibited this canva from being saved:</h2>
+
+      <ul>
+      <% @canva.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :public %><br />
+    <%= f.check_box :public %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_segments %><br />
+    <%= f.text_area :customer_segments %>
+  </div>
+  <div class="field">
+    <%= f.label :value_propositions %><br />
+    <%= f.text_area :value_propositions %>
+  </div>
+  <div class="field">
+    <%= f.label :channels %><br />
+    <%= f.text_area :channels %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_relationships %><br />
+    <%= f.text_area :customer_relationships %>
+  </div>
+  <div class="field">
+    <%= f.label :revenue_streams %><br />
+    <%= f.text_area :revenue_streams %>
+  </div>
+  <div class="field">
+    <%= f.label :key_resources %><br />
+    <%= f.text_area :key_resources %>
+  </div>
+  <div class="field">
+    <%= f.label :key_activities %><br />
+    <%= f.text_area :key_activities %>
+  </div>
+  <div class="field">
+    <%= f.label :key_partnerships %><br />
+    <%= f.text_area :key_partnerships %>
+  </div>
+  <div class="field">
+    <%= f.label :cost_structure %><br />
+    <%= f.text_area :cost_structure %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
