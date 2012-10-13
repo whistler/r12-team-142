@@ -1,5 +1,7 @@
 LeanWall::Application.routes.draw do
 
+  devise_for :users
+
   resources :canvases
 
   get "welcome/index"
