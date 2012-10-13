@@ -9,6 +9,9 @@ gem 'sqlite3'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'paper_trail'
+gem 'best_in_place'
+gem 'redcarpet'
+gem 'pry'
 
 # Gems used only for assets and not required
 # in production environments by default.
