@@ -2,7 +2,9 @@ LeanWall::Application.routes.draw do
 
   devise_for :users
 
-  resources :canvases
+  resources :canvases do
+    get 'settings', :as => :canvas_settings
+  end
 
   get "welcome/index"
   get "welcome/about", :as => 'about'

@@ -57,6 +57,10 @@ class CanvasesController < ApplicationController
     end
   end
 
+  def settings
+    @canvas = Canvas.find(params[:canvas_id])
+  end
+
   # PUT /canvases/1
   # PUT /canvases/1.json
   def update
