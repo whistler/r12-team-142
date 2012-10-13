@@ -1,0 +1,47 @@
+<h1>Listing canvases</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Public</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Customer segments</th>
+    <th>Value propositions</th>
+    <th>Channels</th>
+    <th>Customer relationships</th>
+    <th>Revenue streams</th>
+    <th>Key resources</th>
+    <th>Key activities</th>
+    <th>Key partnerships</th>
+    <th>Cost structure</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @canvases.each do |canvas| %>
+  <tr>
+    <td><%= canvas.user_id %></td>
+    <td><%= canvas.public %></td>
+    <td><%= canvas.title %></td>
+    <td><%= canvas.description %></td>
+    <td><%= canvas.customer_segments %></td>
+    <td><%= canvas.value_propositions %></td>
+    <td><%= canvas.channels %></td>
+    <td><%= canvas.customer_relationships %></td>
+    <td><%= canvas.revenue_streams %></td>
+    <td><%= canvas.key_resources %></td>
+    <td><%= canvas.key_activities %></td>
+    <td><%= canvas.key_partnerships %></td>
+    <td><%= canvas.cost_structure %></td>
+    <td><%= link_to 'Show', canvas %></td>
+    <td><%= link_to 'Edit', edit_canvas_path(canvas) %></td>
+    <td><%= link_to 'Destroy', canvas, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Canvas', new_canvas_path %>

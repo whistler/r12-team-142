@@ -1,6 +1,6 @@
-class CreateCanvas < ActiveRecord::Migration
+class CreateCanvases < ActiveRecord::Migration
   def change
-    create_table :canvas do |t|
+    create_table :canvases do |t|
       t.integer :user_id
       t.boolean :public
       t.string :title

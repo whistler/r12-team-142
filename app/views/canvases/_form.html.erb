@@ -1,10 +1,10 @@
-<%= form_for(@canva) do |f| %>
-  <% if @canva.errors.any? %>
+<%= form_for(@canvas) do |f| %>
+  <% if @canvas.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@canva.errors.count, "error") %> prohibited this canva from being saved:</h2>
+      <h2><%= pluralize(@canvas.errors.count, "error") %> prohibited this canvas from being saved:</h2>
 
       <ul>
-      <% @canva.errors.full_messages.each do |msg| %>
+      <% @canvas.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

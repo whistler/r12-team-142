@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @canvas.user_id %>
+</p>
+
+<p>
+  <b>Public:</b>
+  <%= @canvas.public %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @canvas.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @canvas.description %>
+</p>
+
+<p>
+  <b>Customer segments:</b>
+  <%= @canvas.customer_segments %>
+</p>
+
+<p>
+  <b>Value propositions:</b>
+  <%= @canvas.value_propositions %>
+</p>
+
+<p>
+  <b>Channels:</b>
+  <%= @canvas.channels %>
+</p>
+
+<p>
+  <b>Customer relationships:</b>
+  <%= @canvas.customer_relationships %>
+</p>
+
+<p>
+  <b>Revenue streams:</b>
+  <%= @canvas.revenue_streams %>
+</p>
+
+<p>
+  <b>Key resources:</b>
+  <%= @canvas.key_resources %>
+</p>
+
+<p>
+  <b>Key activities:</b>
+  <%= @canvas.key_activities %>
+</p>
+
+<p>
+  <b>Key partnerships:</b>
+  <%= @canvas.key_partnerships %>
+</p>
+
+<p>
+  <b>Cost structure:</b>
+  <%= @canvas.cost_structure %>
+</p>
+
+
+<%= link_to 'Edit', edit_canvas_path(@canvas) %> |
+<%= link_to 'Back', canvases_path %>
