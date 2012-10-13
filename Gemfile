@@ -22,6 +22,13 @@ end
 
 gem 'jquery-rails'
 
+gem 'capistrano'
+
+group :production do
+  gem 'mysql2' # If using mysql in development, this can be outside the production group.
+  gem 'therubyracer'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
