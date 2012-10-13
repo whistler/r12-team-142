@@ -29,7 +29,7 @@ require 'bundler/capistrano'
 #############################################
 
 GITHUB_REPOSITORY_NAME = 'r12-team-142'
-LINODE_SERVER_HOSTNAME = 'li172-212.members.linode.com'
+LINODE_SERVER_HOSTNAME = '173.230.132.212'
 
 #############################################
 #############################################
