@@ -12,6 +12,7 @@ gem 'paper_trail'
 gem 'best_in_place'
 gem 'redcarpet'
 gem 'pry'
+gem 'cancan'
 
 # Gems used only for assets and not required
 # in production environments by default.
