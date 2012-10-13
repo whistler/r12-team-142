@@ -6,6 +6,8 @@ LeanWall::Application.routes.draw do
     get 'settings', :as => :canvas_settings
   end
 
+  resources :collaborators
+
   get "welcome/index"
   get "welcome/about", :as => 'about'
 

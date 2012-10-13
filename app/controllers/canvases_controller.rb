@@ -59,6 +59,7 @@ class CanvasesController < ApplicationController
 
   def settings
     @canvas = Canvas.find(params[:canvas_id])
+    @collaborator = Collaborator.new(:canvas_id=>params[:canvas_id])
   end
 
   # PUT /canvases/1

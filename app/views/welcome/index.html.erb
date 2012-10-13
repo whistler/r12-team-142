@@ -1,25 +1,50 @@
-<h1>Code Wall</h1>
-<h2>Collaborative Business Models</h2>
+<div id="home">
+  <div class="logo">
+    <h1>Lean Wall</h1>
+    <em>Collaborative Business Models</em>
+  </div>
 
-<div id="home-small-nav">
-  About
-  Sign Up
-</div>
+  <div id="home-small-nav">
+    <%= link_to 'About', about_url %> | 
+    <%= link_to 'Sign In', new_user_session_url %>
+  </div>
 
-<%= link_to new_canvas_url do %>
-  <span class="btn">Start</span>
-<% end %>
+  <div id="home-info">
+    <em>Lean Wall</em> is an web application that lets you create Business Model Canvases individually, with your team or with other people on the internet.
+  </div>
 
-<div class="home-feature">
-	<h3>Business Model Canvas</h3>
-</div>
+  <a href="<%= canvases_path %>" style="text-decoration: none">
+    <div id="start">Start</div>
+  </a>
 
-<div class="home-feature">
-	<h3>Plan your business or idea</h3>
-</div>
+  <div id="vote">
+    This application was made at the Rails Rumble programming competition, please vote if you like it. Thanks.
+  </div>
 
-<div class="home-feature">
-	<h3>Browser and collaborate on open models</h3>
+  <div id="feature-row">
+    <div class="home-feature">
+      <div class="padder">
+    	   <h3>Business Model Canvas</h3>
+         is a strategic management template for developing new or documenting existing business models.
+         It is extensively used by innovative start ups.
+      </div>
+    </div>
+
+    <div class="home-feature">
+      <div class="padder">
+    	  <h3>Plan your business or idea</h3>
+        Analyize your current business to improve it or new ideas for future businesses. 
+        This is the go to place to brainstorm ideas.
+      </div>
+    </div>
+
+    <div class="home-feature">
+      <div class="padder">
+    	  <h3>Collaborate on open models</h3>
+        Learn from models publicly created by others and work with them to make them even better.
+      </div>
+    </div>
+  </div>
 </div>
 
 

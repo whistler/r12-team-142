@@ -1,0 +1,15 @@
+<% @canvas.collaborators.each do |collaborator| %>
+  <div>
+    <%= collaborator.user.email %>
+  </div>
+<% end %>
+
+<%= semantic_form_for @collaborator do |f| %>
+  <%= f.input :email %>
+  <%= f.submit 'Add collaborator'  %>
+<% end %>
+
+<%= semantic_form_for @canvas do |f| %>
+  <%= f.input :public, :label => "Public (Share with the world)" %>
+  <%= f.actions %>
+<% end %>
