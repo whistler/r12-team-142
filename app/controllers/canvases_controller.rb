@@ -14,6 +14,10 @@ class CanvasesController < ApplicationController
   # GET /canvases/1.json
   def show
     @canvas = Canvas.find(params[:id])
+    if params[:version] then
+      canvas_version = @canvas.versions[params[:version].to_i].reify
+      @canvas = canvas_version
+    end
 
     respond_to do |format|
       format.html # show.html.erb

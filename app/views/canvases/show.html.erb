@@ -65,7 +65,9 @@
 
 <div id = "canvas-footer">
   <div id = "canvas-footer-content">
-    <%= link_to 'Edit', edit_canvas_path(@canvas) %> |
-    <%= link_to 'Back', canvases_path %>
+    <%= link_to '<', canvas_path(@canvas, :version=>@canvas.previous_version.version.index) if @canvas.previous_version.version.index > 1 %>
+    Last edited by <%= @canvas.originator %> <%= time_ago_in_words @canvas.updated_at %> ago
+    <%= link_to '>', canvas_path(@canvas, :version=>@canvas.next_version.version.index) if @canvas.next_version %>
+    <%= link_to 'My Models', canvases_path %>
   </div>
 </div>
