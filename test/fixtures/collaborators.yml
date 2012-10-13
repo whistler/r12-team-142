@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  canvas_id: 1
+  user_id: 1
+  permission: MyString
+
+two:
+  canvas_id: 1
+  user_id: 1
+  permission: MyString
