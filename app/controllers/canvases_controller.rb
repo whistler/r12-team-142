@@ -33,7 +33,16 @@ class CanvasesController < ApplicationController
   # GET /canvases/new
   # GET /canvases/new.json
   def new
-    @canvas = Canvas.create!
+    @canvas = Canvas.create!(params[:canvas])
+    if current_user
+      Canvas.collaborators.create(:user=> current_user, :permission=>"Owner")
+    else
+      if session[:unsaved_canvases]
+        session[:unsaved_canvases] << @canvas.id
+      else
+        session[:unsaved_canvases] = [@canvas]
+      end
+    end
     redirect_to canvas_path(@canvas)    
     # respond_to do |format|
     #   format.html # new.html.erb
@@ -75,7 +84,7 @@ class CanvasesController < ApplicationController
     respond_to do |format|
       if @canvas.update_attributes(params[:canvas])
         format.html { redirect_to @canvas, notice: 'Canvas was successfully updated.' }
-        format.json { head :no_content }
+        format.json { respond_with_bip(@canvas)}
       else
         format.html { render action: "edit" }
         format.json { render json: @canvas.errors, status: :unprocessable_entity }

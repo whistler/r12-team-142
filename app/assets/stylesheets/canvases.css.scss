@@ -17,8 +17,12 @@
   position: absolute;
   bottom: 0px;
   height: 9%;
-  background-color: rgba(100,100,100, 0.8);
+  background-color: #565656;
   width: 100%;
+  a:hover{
+    text-decoration: none;
+  }
+  color: white;
 }
 #canvas-footer-content {
   padding: 10px;
@@ -58,4 +62,10 @@
   margin-right: auto;
 }
 
+.last-edited {
+  font-size: 11px;  
+}
 
+.align-right {
+  float: right;
+}

@@ -16,11 +16,16 @@
 
     <br />
 
-    <%= link_to 'New Canvas', new_canvas_path %>
+    <%= link_to new_canvas_path(new_canvas_params) do %>
+      <div class="well span6">
+        <%= image_tag 'add.png', :size=>'32x32' %>
+        <b>Create New</b>
+      </div>
+    <% end %>
 
     <% @models.each do |canvas| %>
         <%= link_to canvas_url(canvas) do %>
-            <div class="model">
+            <div class="model well span6">
                 <h3><%= raw canvas.title %></h3>
                 <h4><%= raw canvas.description %></h4>
             </div>

@@ -3,7 +3,7 @@ LeanWall::Application.routes.draw do
   devise_for :users
 
   resources :canvases do
-    get 'settings', :as => :canvas_settings
+    get 'settings', :as => :settings
   end
 
   resources :collaborators

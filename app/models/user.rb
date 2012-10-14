@@ -10,4 +10,14 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :collaborators
   has_many :canvases, :through => :collaborators
+
+  after_create :own_unsaved_canvases
+
+  def own_unsaved_canvases
+    if session[:unsaved_canvases]
+      session[:unsaved_canvases].each do |canvas|
+        canvas.collaborators.create(:user => self, :permission => "Owner")
+      end
+    end
+  end
 end

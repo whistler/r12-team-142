@@ -1,12 +1,14 @@
 <div id = "canvas-header">
-  <h1>
-    <%= best_in_place @canvas, :title, :nil => "Click to add Title", :type => :input %>
-  </h1>
-  <%= best_in_place @canvas, :description, :type => :input, :nil => "Add description" %>
+  <div class="padder1">
+    <h1>
+      <%= best_in_place @canvas, :title, :nil => "Click to add Title", :type => :input %>
+    </h1>
+    <%= best_in_place @canvas, :description, :type => :input, :nil => "Add description" %>
+  </div>
 </div>
 
  <div id = "canvas-container">
-
+  <div class="padder1">
   <table class="canvas-table" border=1>
     <tbody>
       <tr>
@@ -62,14 +64,45 @@
       </tr>
     </tbody>
   </table>
-
+  </div> <!-- padder -->
 </div> 
 
 <div id = "canvas-footer">
   <div id = "canvas-footer-content">
-    <%= link_to '<', canvas_path(@canvas, :version=>@canvas.previous_version.version.index) if @canvas.previous_version and @canvas.previous_version.version.index > 1 %>
+
+    <%= link_to canvas_path(@canvas, :version=>@canvas.previous_version.version.index) do %>
+      <%= image_tag 'previous.png', :size => '16x16' %>
+    <% end if @canvas.previous_version and @canvas.previous_version.version.index > 1 %>
+
+    <span class="last-edited">
     Last edited by <%= @canvas.originator %> <%= time_ago_in_words @canvas.updated_at %> ago
-    <%= link_to '>', canvas_path(@canvas, :version=>@canvas.next_version.version.index) if @canvas.next_version %>
-    <%= link_to 'My Models', canvases_path %>
+    </span>
+
+    <%= link_to canvas_path(@canvas, :version=>@canvas.next_version.version.index) do %>
+      <%= image_tag 'next.png', :size => '16x16' %>
+    <% end if @canvas.next_version %>
+
+    <%= link_to canvases_path do %>
+      <%= image_tag 'index.png', :size => '24x24' %>
+    <% end %>
+
+    <%= link_to canvas_settings_path(@canvas) do %>
+      <%= image_tag 'settings.png', :size => '24x24' %>
+    <% end %>
+
+    <% if @canvas.public? %>
+      Public <%= link_to 'Change', canvas_settings_path(@canvas) %>
+    <% else %>
+      Private <%= link_to 'Change', canvas_settings_path(@canvas) %>
+    <% end %>
+
+    <% unless current_user %>
+      <div class="align-right">
+        <a href="" class="btn">
+          Save
+        </a>
+        Please sign in or sign up to save
+      </div>
+    <% end %>
   </div>
 </div>
