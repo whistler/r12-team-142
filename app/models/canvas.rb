@@ -6,7 +6,9 @@ class Canvas < ActiveRecord::Base
 
   def method_missing method_name, *args
     if method_name =~ /^md_(\w+)$/
-      return Markdown.new(self.send(method_name[3..method_name.length].to_sym)).to_html
+      md = self.send(method_name[3..method_name.length].to_sym)
+      md = "" if md.nil?
+      return Markdown.new(md).to_html
     else
       raise NoMethodError
     end

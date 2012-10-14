@@ -1,40 +1,20 @@
-<h1>Listing canvases</h1>
+<div class="logo">
+<h1>Lean Wall</h1>
+<em>Collaborative Business Models</em>
+</div>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Public</th>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Customer segments</th>
-    <th>Value propositions</th>
-    <th>Channels</th>
-    <th>Customer relationships</th>
-    <th>Revenue streams</th>
-    <th>Key resources</th>
-    <th>Key activities</th>
-    <th>Key partnerships</th>
-    <th>Cost structure</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div id="home-small-nav">
+<%= link_to 'About', about_url %> | 
+<%= link_to 'Sign In', new_user_session_url %>
+</div>
 
-<% @canvases.each do |canvas| %>
+<h1>My Business Models</h1>
+
+<% @my_models.each do |canvas| %>
   <tr>
-    <td><%= canvas.user_id %></td>
-    <td><%= canvas.public %></td>
     <td><%= canvas.title %></td>
     <td><%= canvas.description %></td>
-    <td><%= canvas.customer_segments %></td>
-    <td><%= canvas.value_propositions %></td>
-    <td><%= canvas.channels %></td>
-    <td><%= canvas.customer_relationships %></td>
-    <td><%= canvas.revenue_streams %></td>
-    <td><%= canvas.key_resources %></td>
-    <td><%= canvas.key_activities %></td>
-    <td><%= canvas.key_partnerships %></td>
-    <td><%= canvas.cost_structure %></td>
+
     <td><%= link_to 'Show', canvas %></td>
     <td><%= link_to 'Edit', edit_canvas_path(canvas) %></td>
     <td><%= link_to 'Destroy', canvas, confirm: 'Are you sure?', method: :delete %></td>
@@ -45,3 +25,11 @@
 <br />
 
 <%= link_to 'New Canvas', new_canvas_path %>
+
+<h1>Open Models</h1>
+
+<% @open_models.each do |canvas| %>
+    <%= link_to canvas_url(canvas) do %>
+        <h3><%= canvas.title %></h3>
+    <% end %>
+<% end %>

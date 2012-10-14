@@ -2,8 +2,9 @@ class CanvasesController < ApplicationController
   # GET /canvases
   # GET /canvases.json
   def index
-    @canvases = Canvas.all
-
+    @my_models = []
+    @my_models = current_user.canvases if current_user
+    @open_models = Canvas.where(:public => true).order("updated_at DESC")
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @canvases }
@@ -28,12 +29,12 @@ class CanvasesController < ApplicationController
   # GET /canvases/new
   # GET /canvases/new.json
   def new
-    @canvas = Canvas.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @canvas }
-    end
+    @canvas = Canvas.create!
+    redirect_to canvas_path(@canvas)    
+    # respond_to do |format|
+    #   format.html # new.html.erb
+    #   format.json { render json: @canvas }
+    # end
   end
 
   # GET /canvases/1/edit
