@@ -72,11 +72,13 @@
 
     <div class="align-left">
       <% if @canvas.public? %>
-        <%= image_tag 'share.png', :size=>'20x20' %>
-        <%= link_to 'Change', canvas_settings_path(@canvas) %>
+        <%= link_to canvas_settings_path(@canvas) do %>
+          <%= image_tag 'share.png', :size=>'20x20' %>
+        <% end %>
       <% else %>
-        <%= image_tag 'lock.png', :size=>'20x20' %>
-        Private <%= link_to 'Change', canvas_settings_path(@canvas) %>
+        <%= link_to canvas_settings_path(@canvas) do %>
+          <%= image_tag 'lock.png', :size=>'20x20' %>
+        <% end %> 
       <% end %>
 
       <%= link_to canvas_path(@canvas, :version=>@canvas.previous_version.version.index) do %>

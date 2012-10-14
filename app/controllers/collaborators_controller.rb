@@ -1,12 +1,12 @@
 class CollaboratorsController < ApplicationController
   def create
-    @collaborator = Collaborator.new(params[:collaborator])
-
+    @collaborator = Collaborator.create(params[:collaborator])
+    @canvas = @collaborator.canvas
     respond_to do |format|
       if @collaborator.save
-        format.html { redirect_to @collaborator.canvas, notice: 'Email was successfully created.' }
+        format.html { redirect_to canvas_path(@collaborator.canvas), notice: 'Email was successfully created.' }
       else
-        format.html { render action: "settings", controller: "canvas", canvas_id: @collaborator.canvas_id }
+        format.html { render "canvases/settings" }
       end
     end
   end

@@ -1,27 +1,37 @@
 <div class="well span6 offset1">
   <h3>Collaborators</h3>
 
-  <ul class="nav nav-pills nav-stacked">
   <% @canvas.collaborators.each do |collaborator| %>
-    <li>
-      <a href="#">
+    <div class="email">
         <%= collaborator.user.email %>
-        <%= link_to 'Remove', collaborator_path(collaborator), :method => :delete %>
-      </a>
-    </li>
+        <%= link_to 'X', collaborator_path(collaborator), :method => :delete, :class=>"delete" if collaborator.permission != "Owner" %>
+    </div>
   <% end %>
   </ul>
 
+  <br/>
+  <h5>email</h5>
+  
+  <% unless @collaborator.errors.messages.blank? %>
+    <div class="alert alert-error">
+      <%= @collaborator.errors.messages.map{|k,v| k.to_s + " " + v.first}.first %>
+    </div>
+  <% end %>
+  
 
-<%= semantic_form_for @collaborator do |f| %>
-  <%= f.input :email %>
-  <%= f.submit 'Add collaborator'  %>
-<% end %>
+  <%= form_for @collaborator do |f| %>
+    <%= f.text_field :email %><br/>
+    <%= f.hidden_field :canvas_id, :value => @canvas.id %><br/>
+    <%= f.submit 'Add collaborator', :class=>"btn"  %>
+  <% end %>
 </div>
 
-<%= semantic_form_for @canvas do |f| %>
-  <%= f.input :public, :label => "Public (Share with the world)" %>
-  <%= f.actions %>
+<div class="well span6 offset1">
+<%= form_for @canvas do |f| %>
+  Private <%= f.radio_button :public, false %>
+  Public <%= f.radio_button :public, true %>
+  <br/>
+  <%= f.submit 'Save', :class => "btn" %>
+  <%= link_to 'Destroy', @canvas, confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger' %>
 <% end %>
-
-<%= link_to 'Destroy', @canvas, confirm: 'Are you sure?', method: :delete, class: 'btn-danger' %>
+</div>
