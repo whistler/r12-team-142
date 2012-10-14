@@ -14,6 +14,7 @@ gem 'redcarpet'
 gem 'pry'
 gem 'cancan'
 gem 'formtastic'
+gem 'seed_dump'
 
 
 # Gems used only for assets and not required
