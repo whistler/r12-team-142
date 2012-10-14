@@ -13,3 +13,5 @@
   <%= f.input :public, :label => "Public (Share with the world)" %>
   <%= f.actions %>
 <% end %>
+
+<%= link_to 'Destroy', @canvas, confirm: 'Are you sure?', method: :delete, class: 'btn-danger' %>

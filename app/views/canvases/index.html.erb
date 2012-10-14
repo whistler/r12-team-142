@@ -1,30 +1,30 @@
-<div id="home-small-nav">
-<%= link_to 'About', about_url %> | 
-<%= link_to 'Sign In', new_user_session_url %>
-</div>
+<div id="index-container">
 
-<h1>My Business Models</h1>
+    <br/>
 
-<% @my_models.each do |canvas| %>
-  <tr>
-    <td><%= canvas.title %></td>
-    <td><%= canvas.description %></td>
+    <ul class="nav nav-pills">
+      <li class="<%= params[:filter]==nil ? 'active' : ''%>">
+        <a href="<%= canvases_path %>">All</a>
+      </li>
+      <li class="<%= params[:filter]=='public' ? 'active' : ''%>">
+        <a href="<%= canvases_path(:filter=>'public')%>">Public</a>
+      </li>
+      <li class="<%= params[:filter]=='private' ? 'active' : ''%>">
+        <a href="<%= canvases_path(:filter=>'private')%>">Private</a>
+      </li>
+    </ul>
 
-    <td><%= link_to 'Show', canvas %></td>
-    <td><%= link_to 'Edit', edit_canvas_path(canvas) %></td>
-    <td><%= link_to 'Destroy', canvas, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+    <br />
 
-<br />
+    <%= link_to 'New Canvas', new_canvas_path %>
 
-<%= link_to 'New Canvas', new_canvas_path %>
-
-<h1>Open Models</h1>
-
-<% @open_models.each do |canvas| %>
-    <%= link_to canvas_url(canvas) do %>
-        <h3><%= canvas.title %></h3>
+    <% @models.each do |canvas| %>
+        <%= link_to canvas_url(canvas) do %>
+            <div class="model">
+                <h3><%= raw canvas.title %></h3>
+                <h4><%= raw canvas.description %></h4>
+            </div>
+        <% end %>
     <% end %>
-<% end %>
+
+</div>

@@ -2,9 +2,13 @@ class CanvasesController < ApplicationController
   # GET /canvases
   # GET /canvases.json
   def index
-    @my_models = []
-    @my_models = current_user.canvases if current_user
-    @open_models = Canvas.where(:public => true).order("updated_at DESC")
+    @user_models = []
+    @open_models = []
+    @user_models = current_user.canvases.order("updated_at DESC") if current_user and params[:filter] != 'public'
+    @open_models = Canvas.where(:public => true).order("updated_at DESC") if params[:filter] != 'private'
+    
+    @models = (@user_models + @open_models).uniq
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @canvases }
