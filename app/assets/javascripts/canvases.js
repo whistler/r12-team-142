@@ -4,7 +4,7 @@ $(document).ready(function() {
 
   var converter = new Showdown.converter();
 
-  $('.best_in_place').bind("ajax:success", function(){
+  $('table .best_in_place').bind("ajax:success", function(){
     var new_html = converter.makeHtml($(this).html());
     $(this).html(new_html);
   });

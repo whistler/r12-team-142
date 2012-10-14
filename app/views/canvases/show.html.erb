@@ -1,129 +1,67 @@
 <div id = "canvas-header">
-  <h1><%= best_in_place @canvas, :title, :nil => "Click to add Title", :type => :input %></h1>
-  <%= best_in_place @canvas, :description, :type => :textarea, :nil => "Add description" %>
+  <h1>
+    <%= best_in_place @canvas, :title, :nil => "Click to add Title", :type => :input %>
+  </h1>
+  <%= best_in_place @canvas, :description, :type => :input, :nil => "Add description" %>
 </div>
 
  <div id = "canvas-container">
-<!--  <div class="top-half"> 
 
-    <div class="canvas-column">
-      <div class="box">
-        <b>Key partnerships</b>
-        <%= best_in_place @canvas, :key_partnerships, :type => :textarea, :display_as => :md_key_partnerships, 
-            :nil => "Click to add key partnerships" %>
-      </div>
-    </div>
-
-    <div class="canvas-column">
-      <div class="box">
-        <b>Key activities</b>
-        <%= best_in_place @canvas, :key_activities, :type => :textarea, :display_as => :md_key_activities %>
-      </div>
-
-      <div class="box">
-        <b>Key resources</b>
-        <%= best_in_place @canvas, :key_resources, :type => :textarea, :display_as => :md_key_resources %>
-      </div>
-
-    </div>
-
-    <div class="canvas-column">
-      <div class="box">
-        <b>Value propositions</b>
-        <%= best_in_place @canvas, :value_propositions, :type => :textarea, :display_as => :md_value_propositions %>
-      </div>
-    </div>
-
-    <div class="canvas-column">
-      <div class="top-block">
-        <div class="box">
-        <b>Customer relationships</b>
-        <%= best_in_place @canvas, :customer_relationships, :type => :textarea, :display_as => :md_customer_relationships %>
-        </div>
-      </div>
-
-      <div class="bottom-block">
-        <div class="box">
+  <table class="canvas-table" border=1>
+    <tbody>
+      <tr>
+        <td rowspan="2" colspan="2">
+          <b>Key partnerships</b>
+          <%= best_in_place @canvas, :key_partnerships, :type => :textarea, :display_as => :md_key_partnerships, 
+              :nil => "<i>Click to add key partnerships</i>" %>
+        </td>
+        <td colspan="2">
+          <b>Key activities</b>
+          <%= best_in_place @canvas, :key_activities, :type => :textarea, :display_as => :md_key_activities,
+              :nil => "<i>Click to add key activities</i>" %>
+        </td>
+        <td rowspan="2" colspan="2">
+          <b>Value propositions</b>
+          <%= best_in_place @canvas, :value_propositions, :type => :textarea, :display_as => :md_value_propositions,
+              :nil => "<i>Click to add value propositions</i>" %>
+        </td>
+        <td colspan="2">
+          <b>Customer relationships</b>
+          <%= best_in_place @canvas, :customer_relationships, :type => :textarea, 
+          :display_as => :md_customer_relationships, :nil => "<i>Click to add customer relationships</i>" %>
+        </td>
+        <td rowspan="2" colspan="2">
+          <b>Customer segments</b>
+          <%= best_in_place @canvas, :customer_segments, :type => :textarea, :display_as => :md_customer_segments,
+              :nil => "<i>Click to add customer segments</i>" %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <b>Key resources</b>
+          <%= best_in_place @canvas, :key_resources, :type => :textarea, :display_as => :md_key_resources,
+              :nil => "<i>Click to add key resources</i>" %>
+        </td>
+        <td colspan="2">
           <b>Channels</b>
-          <%= best_in_place @canvas, :channels, :type => :textarea, :display_as => :md_channels %>
-        </div>
-      </div>
-    </div>
-
-    <div class="canvas-column">
-      <div class="box">
-        <b>Customer segments</b>
-        <%= best_in_place @canvas, :customer_segments, :type => :textarea, :display_as => :md_customer_segments %>
-      </div>
-    </div>
-
-    <div class="clear"></div>
-
-  </div>
-
-  <div class="bottom-half">
-    <div class="canvas-column canvas-column-wide">
-      <div class="box">
-      <b>Cost structure</b>
-      <%= best_in_place @canvas, :cost_structure, :type => :textarea, :display_as => :md_cost_structure %>
-      </div>
-    </div>
-
-    <div class="canvas-column canvas-column-wide">
-      <div class="box">
-        <b>Revenue streams</b>
-        <%= best_in_place @canvas, :revenue_streams, :type => :textarea, :display_as => :md_revenue_streams %>
-      </div>
-    </div>
-  </div> -->
-
-<table class="canvas-table" border=1>
-  <tbody>
-    <tr>
-      <td rowspan="2" colspan="2">
-        <b>Key partnerships</b>
-        <%= best_in_place @canvas, :key_partnerships, :type => :textarea, :display_as => :md_key_partnerships, 
-            :nil => "Click to add key partnerships" %>
-      </td>
-      <td colspan="2">
-        <b>Key activities</b>
-        <%= best_in_place @canvas, :key_activities, :type => :textarea, :display_as => :md_key_activities %>
-      </td>
-      <td rowspan="2" colspan="2">
-        <b>Value propositions</b>
-        <%= best_in_place @canvas, :value_propositions, :type => :textarea, :display_as => :md_value_propositions %>
-      </td>
-      <td colspan="2">
-        <b>Customer relationships</b>
-        <%= best_in_place @canvas, :customer_relationships, :type => :textarea, :display_as => :md_customer_relationships %>
-      </td>
-      <td rowspan="2" colspan="2">
-        <b>Customer segments</b>
-        <%= best_in_place @canvas, :customer_segments, :type => :textarea, :display_as => :md_customer_segments %>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <b>Key resources</b>
-        <%= best_in_place @canvas, :key_resources, :type => :textarea, :display_as => :md_key_resources %>
-      </td>
-      <td colspan="2">
-        <b>Channels</b>
-        <%= best_in_place @canvas, :channels, :type => :textarea, :display_as => :md_channels %>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="5">
-        <b>Cost structure</b>
-        <%= best_in_place @canvas, :cost_structure, :type => :textarea, :display_as => :md_cost_structure %>
-      </td>
-      <td colspan="5">
-        <b>Revenue streams</b>
-        <%= best_in_place @canvas, :revenue_streams, :type => :textarea, :display_as => :md_revenue_streams %>
-      </td>
-    </tr>
-  </tbody>
-</table>
+          <%= best_in_place @canvas, :channels, :type => :textarea, :display_as => :md_channels,
+              :nil => "<i>Click to add channels</i>" %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5">
+          <b>Cost structure</b>
+          <%= best_in_place @canvas, :cost_structure, :type => :textarea, :display_as => :md_cost_structure,
+              :nil => "<i>Click to add key cost structure</i>" %>
+        </td>
+        <td colspan="5">
+          <b>Revenue streams</b>
+          <%= best_in_place @canvas, :revenue_streams, :type => :textarea, :display_as => :md_revenue_streams,
+              :nil => "<i>Click to add revenue streams</i>" %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
 </div> 
 

@@ -14,5 +14,4 @@ class Canvas < ActiveRecord::Base
     end
   end
 
-
 end

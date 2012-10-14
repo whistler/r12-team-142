@@ -2,9 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#canvas-header, #canvas-container, #canvas-footer {
-}
-
 #canvas-header {
   height:10%;
 }
@@ -27,42 +24,8 @@
   padding: 10px;
 }
 
-.top-half {
-  .canvas-column {
-  }
-}
-
-.canvas-column {
-  position: relative;
-  width: 20%;
-  float: left;
-  span {
-    height: 100%;
-    min-height: 50px;
-  }
-  b {
-    display: block;
-    margin-bottom: 10px;
-    text-align: center;
-    margin-right: 10%;
-  }
-  p {
-    margin-right: 20px;
-  }
-}
-
-.canvas-column-wide {
-  width: 50%;
-}
-
 .clear {
   clear: both;
-}
-
-.top-block, .bottom-block {
-  width: 100%;
-  float: left;
-  height: 100%;
 }
 
 .best_in_place {
@@ -71,23 +34,10 @@
   min-height: 30px;
 }
 
-.top-half {
-  height: 66%;
-  position: relative;
-}
-
-.bottom-half {
-  height: 33%;
-  position: relative;
-  width: 100%;
-}
-
-.box {
-  padding: 5px;
-  margin: 0px;
-}
-
 .canvas-table {
+  h1 {
+    font-size: 14px;
+  }
   height: 100%; width: 100%;
   td {
     width: 20%;
@@ -95,4 +45,8 @@
       height: 80%;
     }
   }
+}
+
+.small-input {
+  background: blue;
 }
