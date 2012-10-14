@@ -28,8 +28,9 @@
 
 <div class="well span6 offset1">
 <%= form_for @canvas do |f| %>
-  Private <%= f.radio_button :public, false %>
-  Public <%= f.radio_button :public, true %>
+
+  Private <%= f.radio_button :public, false, :checked => !@canvas.public? %>
+  Public <%= f.radio_button :public, true, :checked => @canvas.public? %>
   <br/><br/>
   <%= f.submit 'Save', :class => "btn" %>
   <% if can? :manage, @canvas %>
