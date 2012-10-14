@@ -21,12 +21,18 @@
 </head>
 <body>
   <%= render :partial=>'layouts/header' if show_header? %>
-  <% unless notice.blank? %>
-    <p class="notice"><%= notice %></p>
+  <% if show_header? %>
+    <div id="container">
   <% end %>
-  <% unless alert.blank? %>
-    <p class="alert"><%= alert %></p>
+    <% unless notice.blank? %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% unless alert.blank? %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+  <% if show_header? %>
+    </div>
   <% end %>
-<%= yield %>
 </body>
 </html>

@@ -34,13 +34,13 @@ class CanvasesController < ApplicationController
   # GET /canvases/new.json
   def new
     @canvas = Canvas.create!(params[:canvas])
-    if current_user
-      Canvas.collaborators.create(:user=> current_user, :permission=>"Owner")
+    if signed_in?
+      @canvas.collaborators.create(:user_id=> current_user.id, :permission=>"Owner")
     else
       if session[:unsaved_canvases]
         session[:unsaved_canvases] << @canvas.id
       else
-        session[:unsaved_canvases] = [@canvas]
+        session[:unsaved_canvases] = [@canvas.id]
       end
     end
     redirect_to canvas_path(@canvas)    

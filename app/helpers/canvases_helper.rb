@@ -8,4 +8,16 @@ module CanvasesHelper
       return nil
     end
   end
+
+  def edited_by(canvas)
+    #
+    id = canvas.originator.to_i
+
+    u = User.find_by_id(id)
+    if u 
+      return u.email
+    else
+      return canvas.originator
+    end
+  end
 end

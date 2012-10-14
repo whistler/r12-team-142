@@ -14,8 +14,8 @@ class CollaboratorsController < ApplicationController
   # DELETE /canvases/1
   # DELETE /canvases/1.json
   def destroy
-    @canvas = Canvas.find(params[:id])
-    @canvas.destroy
+    @collaborator = Collaborator.find(params[:id])
+    @collaborator.destroy
 
     respond_to do |format|
       format.html { redirect_to canvases_url }

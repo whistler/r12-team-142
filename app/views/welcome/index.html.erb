@@ -1,51 +1,58 @@
 <div id="home">
-  <div class="logo">
-    <h1>Lean Wall</h1>
-    <em>Collaborative Business Models</em>
-  </div>
-
-  <div id="home-small-nav">
-    <%= link_to 'About', about_url %> | 
-    <%= link_to 'Sign In', new_user_session_url %>
-  </div>
-
-  <div id="home-info">
-    <em>Lean Wall</em> is an web application that lets you create Business Model Canvases individually, with your team or with other people on the internet.
-  </div>
-
-  <a href="<%= canvases_path %>" style="text-decoration: none">
-    <div id="start">Start</div>
-  </a>
-
-  <div id="vote">
-    This application was made at the Rails Rumble programming competition, please vote if you like it. Thanks.
-  </div>
-
-  <div id="feature-row">
-    <div class="home-feature">
-      <div class="padder">
-    	   <h3>Business Model Canvas</h3>
-         is a strategic management template for developing new or documenting existing business models.
-         It is extensively used by innovative start ups.
-      </div>
+  <div class="home-padder">
+    <div class="logo">
+      <h1>Lean Wall</h1>
+      <em>Collaborative Business Models</em>
     </div>
 
-    <div class="home-feature">
-      <div class="padder">
-    	  <h3>Plan your business or idea</h3>
-        Analyize your current business to improve it or new ideas for future businesses. 
-        This is the go to place to brainstorm ideas.
-      </div>
+    <div id="home-small-nav">
+      <%= link_to 'About', about_url %> | 
+      <% unless signed_in? %>
+        <%= link_to 'Sign In', new_user_session_path %>|
+        <%= link_to 'Sign Up', new_user_registration_path %>
+      <% else%>
+        <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+      <% end %>
     </div>
 
-    <div class="home-feature">
-      <div class="padder">
-    	  <h3>Collaborate on open models</h3>
-        Learn from models publicly created by others and work with them to make them even better.
+    <div id="home-info">
+      <em>Lean Wall</em> is an web application that lets you create Business Model Canvases individually, with your team or with other people on the internet.
+    </div>
+
+    <a href="<%= canvases_path %>" style="text-decoration: none">
+      <div id="start">Start</div>
+    </a>
+
+    <div id="vote">
+      This application was made at the Rails Rumble programming competition, please vote if you like it. Thanks.
+    </div>
+
+    <div id="feature-row">
+      <div class="home-feature">
+        <div class="padder">
+      	   <h3>Business Model Canvas</h3>
+           is a strategic management template for developing new or documenting existing business models.
+           It is extensively used by innovative start ups.
+        </div>
+      </div>
+
+      <div class="home-feature">
+        <div class="padder">
+      	  <h3>Plan your business or idea</h3>
+          Analyize your current business to improve it or new ideas for future businesses. 
+          This is the go to place to brainstorm ideas.
+        </div>
+      </div>
+
+      <div class="home-feature">
+        <div class="padder">
+      	  <h3>Collaborate on open models</h3>
+          Learn from models publicly created by others and work with them to make them even better.
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-
+<script src="http://s0.railsrumble.com/banner.js" type="text/javascript"></script>
 

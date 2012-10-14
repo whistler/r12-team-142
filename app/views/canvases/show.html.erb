@@ -70,38 +70,46 @@
 <div id = "canvas-footer">
   <div id = "canvas-footer-content">
 
-    <%= link_to canvas_path(@canvas, :version=>@canvas.previous_version.version.index) do %>
-      <%= image_tag 'previous.png', :size => '16x16' %>
-    <% end if @canvas.previous_version and @canvas.previous_version.version.index > 1 %>
+    <div class="align-left">
+      <% if @canvas.public? %>
+        <%= image_tag 'share.png', :size=>'20x20' %>
+        <%= link_to 'Change', canvas_settings_path(@canvas) %>
+      <% else %>
+        <%= image_tag 'lock.png', :size=>'20x20' %>
+        Private <%= link_to 'Change', canvas_settings_path(@canvas) %>
+      <% end %>
 
-    <span class="last-edited">
-    Last edited by <%= @canvas.originator %> <%= time_ago_in_words @canvas.updated_at %> ago
-    </span>
+      <%= link_to canvas_path(@canvas, :version=>@canvas.previous_version.version.index) do %>
+        <%= image_tag 'previous.png', :size => '16x16' %>
+      <% end if @canvas.previous_version and @canvas.previous_version.version.index > 1 %>
 
-    <%= link_to canvas_path(@canvas, :version=>@canvas.next_version.version.index) do %>
-      <%= image_tag 'next.png', :size => '16x16' %>
-    <% end if @canvas.next_version %>
+      <span class="last-edited">
+      Last edited by <%= edited_by(@canvas) %> <%= time_ago_in_words @canvas.updated_at %> ago
+      </span>
 
-    <%= link_to canvases_path do %>
-      <%= image_tag 'index.png', :size => '24x24' %>
-    <% end %>
+      <%= link_to canvas_path(@canvas, :version=>@canvas.next_version.version.index) do %>
+        <%= image_tag 'next.png', :size => '16x16' %>
+      <% end if @canvas.next_version %>
+    </div>
 
-    <%= link_to canvas_settings_path(@canvas) do %>
-      <%= image_tag 'settings.png', :size => '24x24' %>
-    <% end %>
+    <span class="footer-buttons">
+      <%= link_to canvases_path do %>
+        <%= image_tag 'index.png', :size => '24x24' %> Dashboard
+      <% end %>
 
-    <% if @canvas.public? %>
-      Public <%= link_to 'Change', canvas_settings_path(@canvas) %>
-    <% else %>
-      Private <%= link_to 'Change', canvas_settings_path(@canvas) %>
-    <% end %>
+      <%= link_to canvas_settings_path(@canvas) do %>
+        <%= image_tag 'settings.png', :size => '24x24' %> Settings
+      <% end %>
+    </div>
 
     <% unless current_user %>
       <div class="align-right">
-        <a href="" class="btn">
+        <a href="<%= new_user_registration_path %>" class="btn">
           Save
         </a>
-        Please sign in or sign up to save
+        <small>
+          Please <%= link_to 'sign in', new_user_session_path %> or <%= link_to 'sign up', new_user_registration_path %> to save
+        </small>
       </div>
     <% end %>
   </div>

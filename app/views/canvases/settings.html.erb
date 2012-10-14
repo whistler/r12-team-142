@@ -1,13 +1,23 @@
-<% @canvas.collaborators.each do |collaborator| %>
-  <div>
-    <%= collaborator.user.email %>
-  </div>
-<% end %>
+<div class="well span6 offset1">
+  <h3>Collaborators</h3>
+
+  <ul class="nav nav-pills nav-stacked">
+  <% @canvas.collaborators.each do |collaborator| %>
+    <li>
+      <a href="#">
+        <%= collaborator.user.email %>
+        <%= link_to 'Remove', collaborator_path(collaborator), :method => :delete %>
+      </a>
+    </li>
+  <% end %>
+  </ul>
+
 
 <%= semantic_form_for @collaborator do |f| %>
   <%= f.input :email %>
   <%= f.submit 'Add collaborator'  %>
 <% end %>
+</div>
 
 <%= semantic_form_for @canvas do |f| %>
   <%= f.input :public, :label => "Public (Share with the world)" %>

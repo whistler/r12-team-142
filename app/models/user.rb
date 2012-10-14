@@ -15,8 +15,9 @@ class User < ActiveRecord::Base
 
   def own_unsaved_canvases
     if session[:unsaved_canvases]
-      session[:unsaved_canvases].each do |canvas|
-        canvas.collaborators.create(:user => self, :permission => "Owner")
+      session[:unsaved_canvases].each do |canvas_id|
+        canvas = Canvas.find(canvas_id)
+        canvas.collaborators.create(:user_id => self.id, :permission => "Owner")
       end
     end
   end

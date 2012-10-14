@@ -21,11 +21,16 @@
   width: 100%;
   a:hover{
     text-decoration: none;
+    color: white;
+  }
+  a {
+    color: white;
   }
   color: white;
 }
 #canvas-footer-content {
   padding: 10px;
+  text-align: center;
 }
 
 .clear {
@@ -68,4 +73,21 @@
 
 .align-right {
   float: right;
+}
+.align-left {
+  float: left;
+}
+
+small {
+  font-size: 11px;
+  a, a:visited, a:hover {
+    color: white;
+    font-weight: bold;
+  }
+}
+
+.footer-buttons {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
