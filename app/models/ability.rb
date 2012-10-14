@@ -6,7 +6,8 @@ class Ability
     user ||= User.new
 
     can :manage, Canvas do |canvas|
-        canvas.users.include? users or canvas.public? 
+        #binding.pry
+        canvas.users.include? user or canvas.public? or canvas.users.blank?
     end
     # Define abilities for the passed in user here. For example:
     #

@@ -26,7 +26,7 @@
     <% @models.each do |canvas| %>
         <%= link_to canvas_url(canvas) do %>
             <div class="model well span6">
-                <h3><%= raw canvas.title %></h3>
+                <h3><%= raw canvas.title || "Untitled" %></h3>
                 <h4><%= raw canvas.description %></h4>
             </div>
         <% end %>

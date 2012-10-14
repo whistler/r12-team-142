@@ -30,8 +30,10 @@
 <%= form_for @canvas do |f| %>
   Private <%= f.radio_button :public, false %>
   Public <%= f.radio_button :public, true %>
-  <br/>
+  <br/><br/>
   <%= f.submit 'Save', :class => "btn" %>
-  <%= link_to 'Destroy', @canvas, confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger' %>
+  <% if can? :manage, @canvas %>
+    <%= link_to 'Destroy', @canvas, confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger' %>
+  <% end %>
 <% end %>
 </div>

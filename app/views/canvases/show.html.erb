@@ -94,7 +94,16 @@
       <% end if @canvas.next_version %>
     </div>
 
-    <span class="footer-buttons">
+    <div class="align-right padding-right">
+      <% unless current_user %>
+          <a href="<%= new_user_registration_path %>" class="btn" style="color: black">
+            Save
+          </a>
+          <small>
+            Please <%= link_to 'sign in', new_user_session_path %> or <%= link_to 'sign up', new_user_registration_path %> to save
+          </small>
+      <% end %>
+
       <%= link_to canvases_path do %>
         <%= image_tag 'index.png', :size => '24x24' %> Dashboard
       <% end %>
@@ -104,15 +113,5 @@
       <% end %>
     </div>
 
-    <% unless current_user %>
-      <div class="align-right">
-        <a href="<%= new_user_registration_path %>" class="btn">
-          Save
-        </a>
-        <small>
-          Please <%= link_to 'sign in', new_user_session_path %> or <%= link_to 'sign up', new_user_registration_path %> to save
-        </small>
-      </div>
-    <% end %>
   </div>
 </div>

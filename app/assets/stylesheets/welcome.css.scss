@@ -63,6 +63,19 @@
   -webkit-border-bottom-right-radius: 5px;
   -webkit-border-bottom-left-radius: 5px;
 }
+#small-nav {
+  padding: 10px;
+  position: absolute;
+  top: 0px;
+  right: 50px;
+  background: rgba(255,255,255,0.6);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+}
 
 #vote {
   background: rgba(255,255,255,0.6);

@@ -19,6 +19,7 @@ class CanvasesController < ApplicationController
   # GET /canvases/1.json
   def show
     @canvas = Canvas.find(params[:id])
+    authorize! :manage, @canvas
     if params[:version] then
       canvas_version = @canvas.versions[params[:version].to_i].reify
       @canvas = canvas_version
@@ -53,6 +54,7 @@ class CanvasesController < ApplicationController
   # GET /canvases/1/edit
   def edit
     @canvas = Canvas.find(params[:id])
+    authorize! :manage, @canvas
   end
 
   # POST /canvases
@@ -80,7 +82,7 @@ class CanvasesController < ApplicationController
   # PUT /canvases/1.json
   def update
     @canvas = Canvas.find(params[:id])
-
+    authorize! :manage, @canvas
     respond_to do |format|
       if @canvas.update_attributes(params[:canvas])
         format.html { redirect_to @canvas, notice: 'Canvas was successfully updated.' }
@@ -96,6 +98,7 @@ class CanvasesController < ApplicationController
   # DELETE /canvases/1.json
   def destroy
     @canvas = Canvas.find(params[:id])
+    authorize! :manage, @canvas
     @canvas.destroy
 
     respond_to do |format|
